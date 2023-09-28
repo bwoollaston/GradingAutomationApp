@@ -7,12 +7,24 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\EmailAppView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ParseInputsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\ProgView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EmailAppView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ParseInputsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ProgView.xaml">

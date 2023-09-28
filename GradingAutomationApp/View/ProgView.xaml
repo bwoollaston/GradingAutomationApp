@@ -5,8 +5,32 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GradingAutomationApp.View"
              mc:Ignorable="d" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:vm="clr-namespace:GradingAutomationApp.ViewModel"
+             xmlns:v="clr-namespace:GradingAutomationApp.View"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <md:Card Background="{StaticResource PrimaryHueLightBrush}"  Margin="10" Grid.Row="0" Padding="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TabControl Grid.Row="1" ItemsSource="{Binding TabItems}" SelectedItem="{Binding SelectedTab}"/>
+            <md:Card Padding="10" Grid.Row="2">
+                <ScrollViewer>
+                    <ContentControl Content="{Binding ViewModel}">
+                        <ContentControl.Resources>
+                            <DataTemplate DataType="{x:Type vm:ParseInputsViewModel}">
+                                <v:ParseInputsView/>
+                            </DataTemplate>
+                            <DataTemplate DataType="{x:Type vm:EmailAppViewModel}">
+                                <v:EmailAppView/>
+                            </DataTemplate>
+                        </ContentControl.Resources>
+                    </ContentControl>
+                </ScrollViewer>
+            </md:Card>
+        </Grid>
+    </md:Card>
 </UserControl>
